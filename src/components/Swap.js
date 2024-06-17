@@ -138,7 +138,7 @@ function Swap(props) {
   }
 
   async function httpCall() {
-    const url = "https://api.1inch.dev/swap/v6.0/1/approve/allowance";
+    const url = `https://api.1inch.dev/swap/v6.0/1/approve/allowance`;
 
     const config = {
       headers: {
@@ -154,6 +154,7 @@ function Swap(props) {
       const response = await axios.get(url, config);
       return response;
     } catch (error) {
+      console.log(error);
       if (error.response.status === 401) {
         console.error(
           "Unauthorized - Check your API key or authentication credentials"
